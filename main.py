@@ -1,7 +1,20 @@
 import csv
 import matplotlib.pyplot as plt
+from pywaffle import Waffle
 
 def show_graph():
+
+    # Waffle chart 
+    fig = plt.figure(
+    FigureClass=Waffle, 
+    rows=5, 
+    columns=10, 
+    values=[waiting, accepted, first_interview, second_interview, offer,rejected],
+    labels = ['Waiting', 'Accepted', 'First Interview', 'Second Interview','Offer','Rejected'],
+    figsize=(5, 3)  )    
+    plt.show()
+
+
     # Pie chart, where the slices will be ordered and plotted counter-clockwise:
     labels = 'Waiting', 'Accepted', 'First Interview', 'Second Interview','Offer','Rejected'
     sizes = [waiting, accepted, first_interview, second_interview, offer,rejected]
@@ -55,6 +68,7 @@ def set_variables():
         
 
 def main():
+    print("")
     import_job_data()
     show_graph()
 
